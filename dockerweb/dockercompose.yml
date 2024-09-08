@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  jupyter:
+    image: brandon113/mi-jupyter-datascience-image
+    ports:
+      - "8888:8888"
+    environment:
+      - JUPYTER_TOKEN=123_4
+    volumes:
+      - /home/brandon13:/home/jovyan/work
+
+  spark:
+    image: bitnami/spark:latest
+    ports:
+      - "8080:8080"
+      - "4040:4040"
+    environment:
+      - SPARK_MODE=master
+      - SPARK_PASSWORD=123_4
+    volumes:
+      - /home/brandon13:/home/spark/work
